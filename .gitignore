@@ -259,6 +259,8 @@ dmypy.json
 cython_debug/
 
 
+
+
 # setting 파일 공유안함
 teamproject/settings.py
 
