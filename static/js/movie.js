@@ -16,8 +16,7 @@ function search_mlist() {
             url: 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json',
             data: {
                 key: '5b015a49a0f1ae63cd63b5a1ba139a86',
-                openStartDt: '2010',
-                openEndDt: '2011',
+                movieNm: search_movie,
             },
             type: 'GET',
             timeout: 3000,
