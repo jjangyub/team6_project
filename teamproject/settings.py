@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'teamproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'movie_db',
-        'USER' : 'root',
-        'PASSWORD' : 'test1234',
-        'HOST' : '127.0.0.1',
+        'NAME':'movie_db',
+        'USER':'root',
+        'PASSWORD':'test1234',
+        'HOST':'127.0.0.1',
         'PORT':'3306'
     }
 }
