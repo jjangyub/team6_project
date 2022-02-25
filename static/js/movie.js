@@ -25,6 +25,8 @@ function search_mlist() {
             dataType: 'json',
             // 만약 성공하면 아래의 함수가 호출
             success : function(result) {
+                console.log(reuslt)
+
                 $('tbody').empty()
 
                 // <th scope="col">영화 제목</th>
@@ -37,7 +39,8 @@ function search_mlist() {
                     let tr = $('<tr></tr>')
                     let titleTd = $('<td></td>>').text(result['movieListResult']['movieList'][i]['movieNm'])
                     let imgTd = $('<td></td>')
-                    let searchTitle = result['boxOfficeResult']['dailyBoxOfficeList'][i]['movieNm'] + " 포스터"
+                    let searchTitle = result['movieListResult']['movieList'][i]['movieNm'] + " 포스터"
+                    let movieCd = result['movieListResult']['movieList'][i]['movieCd']
                     let img = $('<img />')
                     imgTd.append(img)
                     $.ajax({
@@ -65,9 +68,37 @@ function search_mlist() {
                     let openTd = $('<td></td>>').text(result['movieListResult']['movieList'][i]['openDt'])
                     let genreTd = $('<td></td>>').text(result['movieListResult']['movieList'][i]['genreAlt'])
                     let detailTd = $('<td></td>')
-                    let detailBtn = $('<input/>').attr('type','button').attr('value','상세보기')
-                    detailBtn.addClass('btn btn-warning')
-                    detailBtn.on('click',detail_movie())
+                    let detailBtn = $('<button></button>').text('삭제').addClass('btn btn-warning')
+                    detailBtn.on('click',function(){
+                        $.ajax({
+                            async : true,
+                            url: '/movie/detail/',
+                            type : GET,
+                            data : {
+                                // api에 넘겨야하는 데이터
+
+                            },
+                            dataType : 'json',
+                            timeout : 3000,
+                            success : function(result){
+                                // <tr>
+                                //     <td>1,001</td>   //영화제목
+                                //     <td>data</td>    //영화제목 영어로
+                                //     <td>placeholder</td> //러닝타임
+                                //     <td>text</td>    // 감독님 이름
+                                //     <td>text</td>    // 개봉연도
+                                //     <td>text</td>    // 장르명
+                                //      <td>text</td>    // 배우이름-맡은 배역
+                                // </tr>
+                                let tr = $('<tr></tr>')
+                                alert('상세보기 버튼 눌림')
+
+                            },
+                        error : function(){
+                                alert('먼가 이상해요!')
+                        }
+                        })
+                    })
 
                     detailTd.append(detailBtn)
                     tr.append(titleTd)
