@@ -162,8 +162,7 @@ function search_mlist() {
                             url: '/movie/detail/',
                             type : GET,
                             data : {
-                                key: '5b015a49a0f1ae63cd63b5a1ba139a86',
-                     ``
+                                key: '5b015a49a0f1ae63cd63b5a1ba139a86'
                                 // api에 넘겨야하는 데이터
                             },
                             dataType : 'json',
